@@ -78,3 +78,7 @@ disabled_plugins = ["restart"]
   address = "{{ containerd_config.metrics.address | default('') }}"
   grpc_histogram = {{ containerd_config.metrics.grpc_histogram | default(false) | lower }}
 {% endif %}
+
+{% if containerd_extra_config is defined %}
+{{ containerd_extra_config }}
+{% endif %}
